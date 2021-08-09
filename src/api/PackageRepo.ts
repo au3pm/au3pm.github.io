@@ -20,12 +20,12 @@ export default class PackageRepo {
     "https://raw.githubusercontent.com/au3pm/action-test/master/";
   static readonly repoBaseUrl = "https://raw.githubusercontent.com/";
 
-  private static _index?: Index = null;
+  private static _index: Index | null = null;
 
   private static _packages: { [id: string]: Package } = {
     au3pm: {
       repo: "genius257/au3pm",
-      versions: <RepositoryRef[]>[] //WARNING: missing versions could be problematic later in development.
+      versions: <any>[] //WARNING: missing versions could be problematic later in development.
     }
   };
 
@@ -77,9 +77,12 @@ export default class PackageRepo {
     );
   }
 
-  static async getPackage(packageId: PackageName, version: string = null) {
+  static async getPackage(
+    packageId: PackageName,
+    version: string | null = null
+  ) {
     return this.getIndex()
-      .then((index?: Index) => index[packageId])
+      .then((index?: Index) => index?.[packageId])
       .then((packageRef: PackagePathName) => {
         return this.getPackageVersions(packageRef).then(
           (packageVersions: Package) => {
@@ -88,9 +91,11 @@ export default class PackageRepo {
               version ?? "*"
             );
             return (
-              this._cache?.[packageRef]?.[version] ??
+              this._cache?.[packageRef]?.[<string>version] ??
               fetch(
-                `${this.repoBaseUrl}${packageVersions.repo}/${packageVersions.versions[version]}/au3pm.json`
+                `${this.repoBaseUrl}${packageVersions.repo}/${
+                  packageVersions.versions[<string>version]
+                }/au3pm.json`
               )
                 .then((response) =>
                   response.status === 404 ? {} : response.json()
@@ -115,7 +120,7 @@ export default class PackageRepo {
     //FIXME: if cannot resolve, throw new Exception.
     return Object.keys(packageVersions).reduce(
       (previousValue, currentValue) =>
-        previousValue > currentValue ? previousValue : currentValue,
+        <any>previousValue > currentValue ? previousValue : currentValue,
       null
     );
   }
