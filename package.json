@@ -2,10 +2,7 @@
   "name": "au3pm-github-io",
   "version": "1.0.0",
   "description": "The official au3pm package repository web ui",
-  "keywords": [
-    "au3pm",
-    "AutoIt3"
-  ],
+  "keywords": ["au3pm", "AutoIt3"],
   "main": "src/index.js",
   "dependencies": {
     "@octokit/auth-app": "3.5.3",
@@ -28,10 +25,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"],
+  "eslintConfig": {
+    "extends": ["react-app", "react-app/jest"]
+  }
 }

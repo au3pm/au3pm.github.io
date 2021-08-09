@@ -83,18 +83,18 @@ export default class PackageRepo {
   ) {
     return this.getIndex()
       .then((index?: Index) => index?.[packageId])
-      .then((packageRef: PackagePathName) => {
-        return this.getPackageVersions(packageRef).then(
+      .then((packageRef?: PackagePathName) => {
+        return this.getPackageVersions(packageRef as string).then(
           (packageVersions: Package) => {
             version = this.resolveVersion(
               packageVersions.versions,
               version ?? "*"
             );
             return (
-              this._cache?.[packageRef]?.[<string>version] ??
+              this._cache?.[packageRef as string]?.[version as string] ??
               fetch(
                 `${this.repoBaseUrl}${packageVersions.repo}/${
-                  packageVersions.versions[<string>version]
+                  packageVersions.versions[version as string]
                 }/au3pm.json`
               )
                 .then((response) =>
@@ -105,8 +105,9 @@ export default class PackageRepo {
                   return {};
                 })
                 .then((json) => {
-                  this._cache[packageRef] = this._cache[packageRef] ?? {};
-                  this._cache[packageRef][version] = json;
+                  this._cache[packageRef as string] =
+                    this._cache[packageRef as string] ?? {};
+                  this._cache[packageRef as string][version] = json;
                   return json;
                 })
             );
@@ -119,8 +120,10 @@ export default class PackageRepo {
     //FIXME: make true semver resolve it.
     //FIXME: if cannot resolve, throw new Exception.
     return Object.keys(packageVersions).reduce(
-      (previousValue, currentValue) =>
-        <any>previousValue > currentValue ? previousValue : currentValue,
+      (previousValue: string | null, currentValue: string) =>
+        previousValue !== null && previousValue > currentValue
+          ? previousValue
+          : currentValue,
       null
     );
   }
