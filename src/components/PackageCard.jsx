@@ -1,5 +1,5 @@
 import React from "react";
-import PackageRepo from "../api/PackageRepo";
+//import PackageRepo from "../api/PackageRepo";
 
 /**
  * NOTE: We do currently not need to fetch package information for this component usage.

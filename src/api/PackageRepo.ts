@@ -25,7 +25,7 @@ export default class PackageRepo {
   private static _packages: { [id: string]: Package } = {
     au3pm: {
       repo: "genius257/au3pm",
-      versions: <any>[] //WARNING: missing versions could be problematic later in development.
+      versions: [] as any //WARNING: missing versions could be problematic later in development.
     }
   };
 

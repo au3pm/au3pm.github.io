@@ -59,7 +59,6 @@ export default class Package extends React.Component {
             </a>
           </>
         );
-        break;
       default:
         if (this.state.packageIndex?.repo === undefined) {
           return <>Loading...</>;
@@ -73,12 +72,13 @@ export default class Package extends React.Component {
             </a>
           </>
         );
-        break;
     }
   }
 
   render() {
+    /*
     const url = `https://github.com/${this.state.packageIndex?.repo ?? ""}/`;
+    */
     return (
       <div>
         {`package: ${this.state.name ?? "Loading..."}`}

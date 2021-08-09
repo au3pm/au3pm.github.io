@@ -1,5 +1,4 @@
 import { Octokit } from "@octokit/core";
-import { createAppAuth } from "@octokit/auth-app";
 import config from "../app.json";
 import localStorage from "local-storage";
 
@@ -64,7 +63,7 @@ class Auth {
     const left = (width - w) / 2 / systemZoom + dualScreenLeft;
     const top = (height - h) / 2 / systemZoom + dualScreenTop;
 
-    const gWindow = window.open(
+    /* const gWindow = */ window.open(
       oauthUrl,
       "_blank",
       `noopener,scrollbars=no,location=yes,menubar=no,status=yes,resizable=no,width=${w},height=${h},top=${top},left=${left}`

@@ -7,8 +7,6 @@ import Search from "./components/Search";
 import Packages from "./components/Packages";
 import Package from "./components/Package";
 import Add from "./components/Add";
-import QueryString from "query-string";
-import localStorage from "local-storage";
 import OAuth from "./components/OAuth";
 import ThemeToggle from "./components/ThemeToggle";
 
