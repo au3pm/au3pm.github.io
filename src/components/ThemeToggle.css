@@ -1,0 +1,42 @@
+.themeToggle {
+  display: flex;
+  flex-direction: row;
+  --color: white;
+  gap: 5px;
+  align-items: center;
+}
+
+.themeToggle::before {
+  content: "light_mode";
+  font-family: "Material Icons";
+}
+
+.themeToggle::after {
+  content: "dark_mode";
+  font-family: "Material Icons";
+}
+
+.themeToggle .toggle {
+  width: 40px;
+  height: 20px;
+  background-color: var(--color-gamma);
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.themeToggle .toggle::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-epsilon);
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: left 0.3s;
+}
+
+.themeToggle .toggle[data-checked]::before {
+  left: 20px;
+}

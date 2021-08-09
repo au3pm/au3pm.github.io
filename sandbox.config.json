@@ -2,5 +2,6 @@
   "infiniteLoopProtection": true,
   "hardReloadOnChange": false,
   "view": "browser",
-  "template": "create-react-app"
+  "template": "create-react-app",
+  "disableLogging": false
 }

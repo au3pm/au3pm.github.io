@@ -1,0 +1,230 @@
+:root {
+  /* Element background colors */
+  --color-alpha: #254768;
+  --color-beta: #254768;
+  --color-gamma: #ffffff;
+  --color-delta: #fafafa;
+
+  --color-epsilon: #3e4148;
+
+  /* Text colors */
+  --color-phi: #155482;
+  --color-chi: #177ec9;
+  --color-psi: #1f1f1f;
+  --color-omega: #ffffff;
+}
+
+[data-theme="dark"] {
+  /*
+  --primary-color: #9a97f3;
+  --secondary-color: #818cab;
+  --font-color: #e1e1ff;
+  --bg-color: #161625;
+  --heading-color: #818cab;
+  */
+
+  --color-gamma: #333333;
+  --color-delta: #444444;
+
+  --color-epsilon: #494c52;
+
+  --color-phi: #177ec9;
+  --color-chi: #155482;
+  --color-psi: #9c9c9c;
+  --color-omega: #9c9c9c;
+}
+
+* {
+  transition: color 0.3s, background-color 0.3s;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-delta);
+  color: var(--color-psi);
+}
+
+a {
+  transition: color 0.3s;
+  text-decoration: none;
+  color: var(--color-phi);
+}
+
+a:hover {
+  color: var(--color-chi);
+}
+
+select {
+  font-size: 1rem;
+  padding: 1em 1.5em;
+  background-color: #4d5061;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  color: white;
+  border: 0;
+
+  appearance: none;
+}
+
+select:disabled {
+  background-color: #48494e;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='grey' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-image: none;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+table,
+tr,
+td {
+  border-color: var(--color-beta);
+}
+td {
+  background-color: var(--color-gamma);
+}
+
+#logo {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-image: url("logo.png");
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#hero {
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  display: inline-block;
+  border-radius: 100%;
+  align-self: center;
+}
+
+.App {
+  font-family: sans-serif;
+  --text-align: center;
+}
+
+header {
+  /*background-color: #254768;*/
+  background-color: var(--color-alpha);
+  color: var(--color-omega);
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  padding-right: 5px;
+}
+
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header a:hover {
+  color: inherit;
+}
+
+.search {
+  border: 1px solid #000;
+  padding: 5px;
+  -border-radius: 5px;
+  background-color: var(--color-gamma);
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-areas: ". input";
+  height: 30px;
+  border-top: 0 none;
+  border-left: 0 none;
+  border-right: 0 none;
+}
+
+.search > input {
+  display: block;
+  grid-area: input;
+  border: 0 none;
+  background-color: transparent;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  height: 100%;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.active {
+  background-color: var(--color-epsilon);
+  color: var(--color-omega);
+  border-radius: 100px;
+}
+
+.fab {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  --color: green;
+  --color: var(--color-beta);
+}
+
+.fab * {
+  font-size: 60px;
+}
+
+.code {
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.code::before {
+  content: "arrow_forward_ios";
+  line-height: 1;
+  display: inline-block;
+  padding-right: 10px;
+  opacity: 60%;
+
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  --font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  --display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: "liga";
+
+  --font-size: inherit;
+  line-height: inherit;
+}
+
+.packageList {
+  --padding: 10px 20px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 10px 20px;
+}
+
+.packageList > div {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.packageList > a {
+  padding: 15px 10px;
+  /*margin: 5px 0;*/
+  /*background: rgba(0, 0, 0, 0.1);*/
+  background-color: var(--color-gamma);
+}
