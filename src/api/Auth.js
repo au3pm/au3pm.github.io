@@ -34,9 +34,9 @@ class Auth {
     }
 
     const client_id = config.github.client_id;
-    const oauthUrl = `https://github.com/login/oauth/authorize?client_id=${client_id}&scope=public_repo&redirect_uri=${
-      encodeURIComponent(window.location.origin) + "/#/oauth/"
-    }`;
+    const oauthUrl = `https://github.com/login/oauth/authorize?client_id=${client_id}&scope=public_repo&redirect_uri=${encodeURIComponent(
+      window.location.origin + "/#/oauth/"
+    )}`;
 
     // Fixes dual-screen position                             Most browsers      Firefox
     const dualScreenLeft =

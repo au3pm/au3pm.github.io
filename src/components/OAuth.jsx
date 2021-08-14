@@ -5,6 +5,10 @@ import localStorage from "local-storage";
 import "./OAuth.css";
 
 export default class OAuth extends React.Component {
+  state = {
+    finished: false
+  };
+
   componentDidMount() {
     const query = QueryString.parse(window.location.search);
     fetch(
@@ -14,6 +18,7 @@ export default class OAuth extends React.Component {
       .then((json) => {
         localStorage.set("ghtoken", json.access_token);
         window.close();
+        this.setState({ finished: true });
       });
     //FIXME: add promise catch
   }
@@ -22,7 +27,11 @@ export default class OAuth extends React.Component {
     return (
       <div className="oauth">
         <img src="logo.png" alt="au3pm logo" />
-        <div>Please wait...</div>
+        <div>
+          {this.state.finished
+            ? "You may now close this window"
+            : "Please wait..."}
+        </div>
       </div>
     );
   }
